@@ -1,0 +1,28 @@
+{
+    "operationName": "trips",
+    "variables": {
+        "numTripPatterns": 2,
+        "from": {
+            "place": "NSR:StopPlace:6032",
+            "coordinates": {
+                "longitude": 10.798776,
+                "latitude": 59.932479
+            }
+        },
+        "to": {
+            "place": "NSR:StopPlace:58194",
+            "coordinates": {
+                "longitude": 10.806609,
+                "latitude": 59.928324
+            }
+        },
+        "modes": {
+            "transportModes": [
+                {
+                    "transportMode": "bus"
+                }
+            ]
+        }
+    },
+    "query": "query trips($from: Location!, $to: Location!,  $numTripPatterns: Int = 8) {trip(from: $from, to: $to, modes: {transportModes: [{transportMode: bus}]},  numTripPatterns: $numTripPatterns) {tripPatterns {legs {id expectedStartTime   }}}}"
+}
